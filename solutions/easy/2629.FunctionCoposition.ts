@@ -6,7 +6,6 @@
 
 // You may assume each function in the array accepts one integer as input and returns one integer as output.
 
-
 // Example 1:
 
 // Input: functions = [x => x + 1, x => x * x, x => 2 * x], x = 4
@@ -19,17 +18,17 @@
 // (64) + 1 = 65
 // Example 2:
 
-type F = (x: number) => number;
+type F = (x: number) => number
 
 function compose(functions: F[]): F {
-  if (!functions.length) return x => x;
+  if (!functions.length) return (x) => x
 
   functions.reverse()
-  
-  return function(x) {
-    return functions.reduce((result, func) => func(result), x);
+
+  return function (x) {
+    return functions.reduce((result, func) => func(result), x)
   }
-};
+}
 
 /**
  * const fn = compose([x => x + 1, x => 2 * x])

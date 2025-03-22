@@ -10,7 +10,6 @@
 // Output: [[1,5]]
 // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 
-
 // Constraints:
 
 // 1 <= intervals.length <= 104
@@ -18,22 +17,28 @@
 // 0 <= starti <= endi <= 104
 
 function merge(intervals: number[][]): number[][] {
-  if(intervals.length < 1) return intervals
+  if (intervals.length < 1) return intervals
 
-  intervals.sort((a,b)=>a[0] - b[0])
+  intervals.sort((a, b) => a[0] - b[0])
 
   let result = [intervals[0]]
 
-  intervals.forEach(element => {
-    if(result[result.length - 1][1] >= element[0]){
+  intervals.forEach((element) => {
+    if (result[result.length - 1][1] >= element[0]) {
       result[result.length - 1][1] = element[1]
-    }
-      else{
-        result.push(element)
+    } else {
+      result.push(element)
     }
   })
 
   return result
-};
+}
 
-console.log(merge([[1,3],[2,6],[8,10],[15,18]]))  //[ [ 1, 6 ], [ 8, 10 ], [ 15, 18 ] ]
+console.log(
+  merge([
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18],
+  ]),
+) //[ [ 1, 6 ], [ 8, 10 ], [ 15, 18 ] ]
