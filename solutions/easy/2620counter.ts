@@ -1,8 +1,14 @@
 var createCounter = function (n: number) {
-  let numb = n
   return function () {
-    const res = numb
-    numb++
-    return res
+    return n++
   }
 }
+
+const func = createCounter(1)
+
+func()
+func()
+func()
+func()
+func()
+console.log(func()) //6
