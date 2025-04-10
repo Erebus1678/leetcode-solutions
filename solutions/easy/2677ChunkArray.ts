@@ -6,21 +6,25 @@
 
 // Please solve it without using lodash's _.chunk function.
 
- 
-
 // Example 1:
 
 // Input: arr = [1,2,3,4,5], size = 1
 // Output: [[1],[2],[3],[4],[5]]
 // Explanation: The arr has been split into subarrays each with 1 element.
 
-type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
-type Obj = Record<string, JSONValue> | JSONValue[];
+type JSONValue =
+  | null
+  | boolean
+  | number
+  | string
+  | JSONValue[]
+  | { [key: string]: JSONValue }
+type Obj = Record<string, JSONValue> | JSONValue[]
 
 function chunk(arr: Obj[], size: number): Obj[][] {
-  const result: Obj[][] = [];
+  const result: Obj[][] = []
   for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
+    result.push(arr.slice(i, i + size))
   }
-  return result;
+  return result
 }

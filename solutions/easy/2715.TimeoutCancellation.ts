@@ -7,13 +7,11 @@
 
 // If, before the delay of t milliseconds, the function cancelFn is invoked, it should cancel the delayed execution of fn. Otherwise, if cancelFn is not invoked within the specified delay t, fn should be executed with the provided args as arguments.
 
- 
-
 // Example 1:
 
 // Input: fn = (x) => x * 5, args = [2], t = 20
 // Output: [{"time": 20, "returned": 10}]
-// Explanation: 
+// Explanation:
 // const cancelTimeMs = 50;
 // const cancelFn = cancellable((x) => x * 5, [2], 20);
 // setTimeout(cancelFn, cancelTimeMs);
@@ -23,7 +21,7 @@
 
 // Input: fn = (x) => x**2, args = [2], t = 100
 // Output: []
-// Explanation: 
+// Explanation:
 // const cancelTimeMs = 50;
 // const cancelFn = cancellable((x) => x**2, [2], 100);
 // setTimeout(cancelFn, cancelTimeMs);
@@ -33,25 +31,30 @@
 
 // Input: fn = (x1, x2) => x1 * x2, args = [2,4], t = 30
 // Output: [{"time": 30, "returned": 8}]
-// Explanation: 
+// Explanation:
 // const cancelTimeMs = 100;
 // const cancelFn = cancellable((x1, x2) => x1 * x2, [2,4], 30);
 // setTimeout(cancelFn, cancelTimeMs);
 
 // The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), which happened after the execution of fn(2,4) at 30ms.
 
-type JSONValue1 = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type JSONValue1 =
+  | null
+  | boolean
+  | number
+  | string
+  | JSONValue[]
+  | { [key: string]: JSONValue }
 type Fn1 = (...args: JSONValue[]) => void
 
-function cancellable(fn:Fn1, args:JSONValue1[], t:number) {
-
+function cancellable(fn: Fn1, args: JSONValue1[], t: number) {
   const timerId = setTimeout(() => {
-    fn(...args);
-  }, t);
+    fn(...args)
+  }, t)
 
   return function cancelFn() {
-    clearTimeout(timerId);
-  };
+    clearTimeout(timerId)
+  }
 }
 
 /**
@@ -66,11 +69,11 @@ function cancellable(fn:Fn1, args:JSONValue1[], t:number) {
  *      const diff = Math.floor(performance.now() - start);
  *      result.push({"time": diff, "returned": fn(...argsArr)});
  *  }
- *       
+ *
  *  const cancel = cancellable(log, args, t);
  *
  *  const maxT = Math.max(t, cancelTimeMs);
- *           
+ *
  *  setTimeout(cancel, cancelTimeMs);
  *
  *  setTimeout(() => {

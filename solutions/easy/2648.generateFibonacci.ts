@@ -22,9 +22,10 @@
 // Explanation: gen.next() is never called so nothing is outputted
 
 function* fibGenerator(): Generator<number> {
-  let a = 0, b = 1;
+  let a = 0,
+    b = 1
   while (true) {
-    yield a;
-    [a, b] = [b, a + b];
+    yield a
+    ;[a, b] = [b, a + b]
   }
 }

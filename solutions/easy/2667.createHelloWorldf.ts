@@ -1,5 +1,4 @@
 // Write a function createHelloWorld. It should return a new function that always returns "Hello World".
- 
 
 // Example 1:
 
@@ -11,13 +10,11 @@
 
 // The function returned by createHelloWorld should always return "Hello World".
 
-
 function createHelloWorld() {
-    
-    return function(): string {
-        return 'Hello World'
-    };
-};
+  return function (): string {
+    return 'Hello World'
+  }
+}
 
 /**
  * const f = createHelloWorld();

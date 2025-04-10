@@ -1,9 +1,6 @@
-
 // Given an array arr and a function fn, return a sorted array sortedArr. You can assume fn only returns numbers and those numbers determine the sort order of sortedArr. sortedArr must be sorted in ascending order by fn output.
 
 // You may assume that fn will never duplicate numbers for a given array.
-
- 
 
 // Example 1:
 
@@ -19,11 +16,17 @@
 
 // Input: arr = [[3, 4], [5, 2], [10, 1]], fn = (x) => x[1]
 // Output: [[10, 1], [5, 2], [3, 4]]
-// Explanation: arr is sorted in ascending order by number at index=1. 
+// Explanation: arr is sorted in ascending order by number at index=1.
 
-type JSONValue2 = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type JSONValue2 =
+  | null
+  | boolean
+  | number
+  | string
+  | JSONValue[]
+  | { [key: string]: JSONValue }
 type Fn2 = (value: JSONValue) => number
 
 function sortBy(arr: JSONValue2[], fn: Fn2): JSONValue[] {
-    return arr.sort((a,b)=> fn(a) - fn(b))
-};
+  return arr.sort((a, b) => fn(a) - fn(b))
+}

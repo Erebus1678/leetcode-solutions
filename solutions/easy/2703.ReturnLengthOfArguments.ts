@@ -1,5 +1,4 @@
 // Write a function argumentsLength that returns the count of arguments passed to it.
- 
 
 // Example 1:
 
@@ -13,16 +12,22 @@
 
 // Input: args = [{}, null, "3"]
 // Output: 3
-// Explanation: 
+// Explanation:
 // argumentsLength({}, null, "3"); // 3
 
 // Three values were passed to the function so it should return 3.
 
-type JSONVal = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type JSONVal =
+  | null
+  | boolean
+  | number
+  | string
+  | JSONValue[]
+  | { [key: string]: JSONValue }
 
 function argumentsLength(...args: JSONVal[]): number {
-    return args.length
-};
+  return args.length
+}
 
 /**
  * argumentsLength(1, 2, 3); // 3

@@ -2,7 +2,6 @@
 
 // The first time the returned function is called, it should return the same result as fn.
 // Every subsequent time it is called, it should return undefined.
- 
 
 // Example 1:
 
@@ -14,14 +13,14 @@
 // onceFn(2, 3, 6); // undefined, fn was not called
 
 function once<F extends (...args: any[]) => any>(
-    fn: F
-  ): (...args: Parameters<F>) => ReturnType<F> | undefined {
-    let called = false;
-  
-    return (...args: Parameters<F>): ReturnType<F> | undefined => {
-      if (!called) {
-        called = true;
-        return fn(...args);
-      }
-    };
+  fn: F,
+): (...args: Parameters<F>) => ReturnType<F> | undefined {
+  let called = false
+
+  return (...args: Parameters<F>): ReturnType<F> | undefined => {
+    if (!called) {
+      called = true
+      return fn(...args)
+    }
   }
+}
